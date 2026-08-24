@@ -2,7 +2,7 @@
 
 The public website and macOS download for Wander.
 
-Wander gives you one interesting question at a time while your AI works. Press `Option-W` from any app to open or close it.
+Wander gives you one interesting idea at a time while your AI works. Press `Option-W` from any app to open or close it.
 
 ## Local preview
 
