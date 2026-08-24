@@ -221,6 +221,7 @@ kbd {
   position: relative;
   z-index: 1;
   perspective: 1300px;
+  scroll-margin-top: 90px;
 }
 
 .soft-orbit {
@@ -256,6 +257,10 @@ kbd {
   box-shadow: var(--shadow);
   transform: rotateY(-2.5deg) rotateX(1deg);
   transform-origin: center;
+}
+
+.wander-card.is-starting {
+  animation: trail-start 520ms ease-out;
 }
 
 .wander-card::after {
@@ -680,6 +685,21 @@ footer a {
 @keyframes reveal-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes trail-start {
+  0% {
+    box-shadow: var(--shadow);
+    filter: saturate(1);
+  }
+  45% {
+    box-shadow: 0 28px 78px rgba(23, 75, 67, 0.26);
+    filter: saturate(1.08);
+  }
+  100% {
+    box-shadow: var(--shadow);
+    filter: saturate(1);
+  }
 }
 
 @media (min-width: 1001px) and (max-height: 900px) {

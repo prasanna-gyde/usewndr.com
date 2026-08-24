@@ -50,10 +50,14 @@ const title = document.querySelector("#demo-title");
 const hook = document.querySelector("#demo-hook");
 const revealCopy = document.querySelector("#demo-reveal-copy");
 const paths = document.querySelector("#demo-paths");
+const demo = document.querySelector("#demo");
+const demoCard = demo.querySelector(".wander-card");
+const demoTrigger = document.querySelector("#demo-trigger");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let trailIndex = 0;
 
-function renderTrail() {
+function renderTrail(animate = false) {
   const trail = trails[trailIndex];
   category.textContent = trail.category;
   title.textContent = trail.title;
@@ -78,6 +82,29 @@ function renderTrail() {
     });
     paths.append(button);
   });
+
+  if (animate) {
+    demoCard.classList.remove("is-starting");
+    requestAnimationFrame(() => demoCard.classList.add("is-starting"));
+  }
 }
 
 renderTrail();
+
+demoCard.addEventListener("animationend", () => {
+  demoCard.classList.remove("is-starting");
+});
+
+demoTrigger.addEventListener("click", (event) => {
+  event.preventDefault();
+  trailIndex = (trailIndex + 1) % trails.length;
+  renderTrail(true);
+  demo.scrollIntoView({
+    behavior: reduceMotion.matches ? "auto" : "smooth",
+    block: "center"
+  });
+
+  window.setTimeout(() => {
+    paths.querySelector("button")?.focus({ preventScroll: true });
+  }, reduceMotion.matches ? 0 : 450);
+});
