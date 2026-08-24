@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe6">
+  <meta name="description" content="Wander gives you one interesting question at a time while your AI works. A native macOS app with 300 handpicked starting points.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://usewndr.com/">
+  <meta property="og:title" content="Wander for macOS">
+  <meta property="og:description" content="Go somewhere interesting while your AI works.">
+  <meta property="og:image" content="https://usewndr.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wander for macOS">
+  <meta name="twitter:description" content="Go somewhere interesting while your AI works.">
+  <meta name="twitter:image" content="https://usewndr.com/assets/og.png">
+  <link rel="canonical" href="https://usewndr.com/">
+  <link rel="icon" href="assets/wander-mark.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Wander for macOS</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Wander home">
+      <img src="assets/wander-wordmark.png" alt="Wander">
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#inside">Inside Wander</a>
+      <a class="nav-download" href="download/Wander-0.1.0.dmg" download>Download</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">A curiosity break for macOS</p>
+        <h1>Go somewhere interesting while your AI works.</h1>
+        <p class="hero-intro">Press <kbd>⌥ W</kbd> from any app. Wander opens one short question, lets you follow the thought, and disappears the moment work calls you back.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="download/Wander-0.1.0.dmg" download>
+            <span>Download Wander</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a class="text-link" href="#demo">Try a question <span aria-hidden="true">↘</span></a>
+        </div>
+        <p class="download-note">Version 0.1 · macOS 13 or newer · Apple silicon and Intel</p>
+      </div>
+
+      <div class="demo-wrap" id="demo">
+        <div class="soft-orbit" aria-hidden="true"></div>
+        <article class="wander-card" aria-live="polite">
+          <div class="card-topline">
+            <img src="assets/wander-wordmark.png" alt="" aria-hidden="true">
+            <span id="demo-category">Everyday</span>
+            <span class="card-close" aria-hidden="true">×</span>
+          </div>
+          <div class="card-content">
+            <h2 id="demo-title">Mirrors reverse depth</h2>
+            <p class="demo-hook" id="demo-hook">A mirror sends every point straight back toward you. It has no idea which side is left.</p>
+            <p class="demo-question" id="demo-question">What direction does a mirror actually reverse?</p>
+            <div class="choices" id="demo-choices"></div>
+            <div class="reveal" id="demo-reveal" hidden>
+              <p class="choice-recap" id="choice-recap"></p>
+              <p id="reveal-copy"></p>
+              <button class="next-question" id="next-question" type="button">Take me somewhere else <span aria-hidden="true">↻</span></button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Take me somewhere else</span>
+            <span>wandering · 0:42</span>
+            <span>⌥ W anywhere</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Wander highlights">
+      <p><strong>300</strong> starting questions</p>
+      <p><strong>20</strong> categories</p>
+      <p><strong>1</strong> shortcut from anywhere</p>
+    </section>
+
+    <section class="how section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">Built for the gaps</p>
+        <h2>One good thought fits almost anywhere.</h2>
+        <p>Use the minute between asking and receiving. Stay for one answer or keep following the trail.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-number">01</span>
+          <h3>Open from anywhere</h3>
+          <p>Press <kbd>⌥ W</kbd> while your browser, editor, or AI app stays visible underneath.</p>
+        </li>
+        <li>
+          <span class="step-number">02</span>
+          <h3>Choose an answer</h3>
+          <p>Each visit starts with a specific question. Make a guess before reading the explanation.</p>
+        </li>
+        <li>
+          <span class="step-number">03</span>
+          <h3>Follow or leave</h3>
+          <p>Pick a nearby rabbit hole, jump somewhere else, or press <kbd>Esc</kbd> and return to work.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="inside section" id="inside">
+      <div class="inside-copy">
+        <p class="eyebrow">Inside Wander</p>
+        <h2>300 questions, selected by hand.</h2>
+        <p>Fifteen starting points in every category give Wander real range before generation begins. New reveals and rabbit holes respond to the choice you make.</p>
+      </div>
+      <div class="category-cloud" aria-label="Wander categories">
+        <span>Physics <small>15</small></span>
+        <span>Space <small>15</small></span>
+        <span>Biology <small>15</small></span>
+        <span>Animals &amp; Nature <small>15</small></span>
+        <span>Medicine <small>15</small></span>
+        <span>Computing <small>15</small></span>
+        <span>Mathematics <small>15</small></span>
+        <span>Language <small>15</small></span>
+        <span>History <small>15</small></span>
+        <span>Economics <small>15</small></span>
+        <span>Philosophy <small>15</small></span>
+        <span>Psychology <small>15</small></span>
+        <span>Art <small>15</small></span>
+        <span>Geography <small>15</small></span>
+        <span>Food <small>15</small></span>
+        <span>Music <small>15</small></span>
+        <span>Books <small>15</small></span>
+        <span>Film &amp; TV <small>15</small></span>
+        <span>Sports <small>15</small></span>
+        <span>Everyday <small>15</small></span>
+      </div>
+    </section>
+
+    <section class="taste section">
+      <div class="taste-card">
+        <div>
+          <p class="eyebrow">Learns quietly</p>
+          <h2>Your trail stays on your Mac.</h2>
+        </div>
+        <p>Wander remembers what you explore, what you skip, and which subjects keep you around. That local history prevents repeats and helps future questions fit your taste. There are no streaks and no score.</p>
+        <a href="privacy.html">Read the privacy details <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="closing section">
+      <img src="assets/wander-mark.png" alt="" aria-hidden="true">
+      <p class="eyebrow">Ready when the wait begins</p>
+      <h2>There is always somewhere else to go.</h2>
+      <a class="button button-primary" href="download/Wander-0.1.0.dmg" download>
+        <span>Download for macOS</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+      <p class="download-note">Free during the early release</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="#top"><img src="assets/wander-wordmark.png" alt="Wander"></a>
+    <p>Somewhere interesting to go while your AI works.</p>
+    <div>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/prasanna-gyde/usewndr.com/issues">Support</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

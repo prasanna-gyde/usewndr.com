@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe6">
+  <meta name="description" content="How Wander stores local history and operates its shared generation service.">
+  <link rel="canonical" href="https://usewndr.com/privacy.html">
+  <link rel="icon" href="assets/wander-mark.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Privacy · Wander</title>
+</head>
+<body class="privacy-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Wander home">
+      <img src="assets/wander-wordmark.png" alt="Wander">
+    </a>
+    <nav aria-label="Privacy navigation">
+      <a href="index.html">Back to Wander</a>
+      <a class="nav-download" href="download/Wander-0.1.0.dmg" download>Download</a>
+    </nav>
+  </header>
+
+  <main class="privacy-main">
+    <p class="eyebrow">Privacy</p>
+    <h1>A small, clear data boundary.</h1>
+    <p class="lede">Wander keeps detailed exploration history on your Mac. The shared service stores the minimum identity, security, and usage records needed to run generation responsibly.</p>
+
+    <section>
+      <h2>Stored on your Mac</h2>
+      <ul>
+        <li>Questions and categories shown</li>
+        <li>Answers and rabbit-hole selections</li>
+        <li>Visit duration and exit reason</li>
+        <li>Generated or fallback source</li>
+        <li>Recent topics used to prevent repeats</li>
+        <li>A rotating Wander refresh token in macOS Keychain</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Stored by the Wander service</h2>
+      <ul>
+        <li>Your Google account identifier and email address</li>
+        <li>Hashed session records, device identifier, expiry, and revocation time</li>
+        <li>Generation workflow, timestamp, model, token counts, and result status</li>
+        <li>A salted hash of the connecting IP address for abuse controls</li>
+      </ul>
+      <p>The service does not store Wander prompts, generated responses, answers, branch choices, or local visit history in its database.</p>
+    </section>
+
+    <section>
+      <h2>Generation requests</h2>
+      <p>Wander sends the prompt needed for a reveal or rabbit hole to its model gateway. The signed-in Google email is included for service attribution. Request data may be retained according to the model gateway's service configuration.</p>
+    </section>
+
+    <section>
+      <h2>Credentials</h2>
+      <p>Model credentials, Google OAuth secrets, signing secrets, and database credentials stay on the Wander service. They are never included in the macOS app.</p>
+    </section>
+
+    <section>
+      <h2>Updates</h2>
+      <p>This notice will be updated when Wander's data handling changes. Last updated 24 August 2026.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="index.html"><img src="assets/wander-wordmark.png" alt="Wander"></a>
+    <p>Somewhere interesting to go while your AI works.</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="https://github.com/prasanna-gyde/usewndr.com/issues">Support</a>
+    </div>
+  </footer>
+</body>
+</html>
