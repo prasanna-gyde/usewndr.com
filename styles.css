@@ -653,6 +653,15 @@ footer p {
   margin: 0;
 }
 
+.footer-credit {
+  line-height: 1.7;
+}
+
+.footer-credit a {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 footer > div {
   display: flex;
   gap: 22px;
