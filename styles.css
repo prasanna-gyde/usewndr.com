@@ -316,88 +316,60 @@ kbd {
   line-height: 1.55;
 }
 
-.demo-question {
-  margin: 27px 0 14px;
-  font-size: 18px;
-  font-weight: 720;
-  line-height: 1.4;
+.trail-reveal {
+  margin: 23px 0 0;
+  padding-top: 21px;
+  border-top: 1px solid rgba(31, 36, 44, 0.1);
+  font-size: 15px;
+  line-height: 1.58;
 }
 
-.choices {
-  display: grid;
-  gap: 10px;
+.trail-label {
+  margin: 24px 0 11px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.choice {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
+.trail-paths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.trail-path {
+  display: inline-flex;
   align-items: center;
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid rgba(31, 36, 44, 0.12);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.62);
-  color: #4c5052;
-  font: 650 14px/1.35 var(--rounded);
+  gap: 8px;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(49, 95, 86, 0.11);
+  color: var(--green-deep);
+  font: 680 13px/1.3 var(--rounded);
   text-align: left;
   cursor: pointer;
-  transition: border 150ms ease, background 150ms ease, color 150ms ease, transform 150ms ease;
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease;
 }
 
-.choice span:last-child {
-  display: grid;
-  width: 26px;
-  height: 26px;
-  place-items: center;
-  border-radius: 7px;
-  background: rgba(31, 36, 44, 0.06);
-  color: #777b7c;
-  font-size: 11px;
+.trail-path span:first-child {
+  font-size: 15px;
 }
 
-.choice:hover,
-.choice:focus-visible {
-  border-color: rgba(49, 95, 86, 0.42);
-  background: white;
+.trail-path:hover,
+.trail-path:focus-visible {
+  background: rgba(49, 95, 86, 0.2);
   color: var(--green-deep);
   transform: translateX(3px);
 }
 
-.choice:focus-visible,
-.next-question:focus-visible,
+.trail-path:focus-visible,
 .button:focus-visible,
 a:focus-visible {
   outline: 3px solid rgba(49, 95, 86, 0.28);
   outline-offset: 3px;
-}
-
-.reveal {
-  animation: reveal-in 320ms ease both;
-}
-
-.choice-recap {
-  margin: 28px 0 12px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 650;
-}
-
-#reveal-copy {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.62;
-}
-
-.next-question {
-  margin-top: 24px;
-  padding: 11px 14px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(49, 95, 86, 0.12);
-  color: var(--green-deep);
-  font: 700 13px var(--rounded);
-  cursor: pointer;
 }
 
 .card-footer {

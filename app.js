@@ -1,92 +1,83 @@
-const questions = [
+const trails = [
   {
     category: "Everyday",
     title: "Mirrors reverse depth",
     hook: "A mirror sends every point straight back toward you. It has no idea which side is left.",
-    question: "What direction does a mirror actually reverse?",
-    choices: ["Front and back", "Left and right", "Up and down"],
-    reveal: "A mirror reverses the front-back axis perpendicular to its surface. Left-right reversal appears because you imagine turning around to face your reflection, and that imagined rotation swaps your sides. The mirror itself performs no horizontal flip."
+    reveal: "A mirror reverses the axis pointing into its surface. The left side remains left, but front becomes back.",
+    paths: [
+      { label: "Why writing looks reversed", next: 1 },
+      { label: "How periscopes bend sight", next: 2 },
+      { label: "Something completely different", next: 3 }
+    ]
+  },
+  {
+    category: "Language",
+    title: "Mirror writing keeps its shape",
+    hook: "Letters look backward in a mirror because the page faces away from you while its reflection faces back.",
+    reveal: "The mirror preserves every left and right position. Turning the page toward the mirror is the movement that reverses its front and back.",
+    paths: [
+      { label: "Return to mirror depth", next: 0 },
+      { label: "How periscopes bend sight", next: 2 },
+      { label: "Something completely different", next: 3 }
+    ]
   },
   {
     category: "Physics",
-    title: "Water dancing on a hot pan",
-    hook: "A drop can survive longer on the hottest skillet than on one that is merely warm.",
-    question: "What keeps the droplet away from the metal?",
-    choices: ["A cushion of vapor", "Repelled electric charge", "A film of oil"],
-    reveal: "The droplet's underside flashes into vapor before the liquid can wet the pan. That vapor layer supports and insulates the drop, slowing further heat transfer. With little contact or friction, the drop glides across the surface on its own vapor."
+    title: "A periscope turns sight twice",
+    hook: "Two angled mirrors can carry a view over a wall without moving the observer.",
+    reveal: "The first mirror redirects incoming light down the tube. The second redirects it toward your eyes, preserving a view that began above you.",
+    paths: [
+      { label: "Return to mirror depth", next: 0 },
+      { label: "Why writing looks reversed", next: 1 },
+      { label: "Something completely different", next: 3 }
+    ]
   },
   {
     category: "Psychology",
-    title: "A random number changes your guess",
-    hook: "People shown a high random number give higher estimates for an unrelated question minutes later.",
-    question: "Why does an irrelevant number pull the answer toward it?",
-    choices: ["Insufficient adjustment", "A desire to agree", "Stronger visual memory"],
-    reveal: "People tend to adjust away from the first number they encounter, even when they know it is irrelevant. The adjustment is usually too small, leaving the estimate biased toward its starting point. Psychologists call this the anchoring effect."
-  },
-  {
-    category: "Space",
-    title: "Io never stops erupting",
-    hook: "Jupiter's small moon Io has more active volcanoes than any other known world.",
-    question: "What keeps its interior hot enough to melt rock?",
-    choices: ["Tidal flexing", "Sunlight from Jupiter", "A radioactive ocean"],
-    reveal: "Jupiter and neighboring moons pull Io through a slightly elliptical orbit. Their changing gravity repeatedly stretches and compresses its interior. Friction from that flexing produces enough heat to melt rock and feed hundreds of volcanoes."
+    title: "Your brain hides every blink",
+    hook: "You lose brief slices of vision whenever you blink, yet the world appears continuous.",
+    reveal: "Your visual system reduces sensitivity during a blink and joins the scenes on either side. The missing moment rarely reaches awareness.",
+    paths: [
+      { label: "Return to mirror depth", next: 0 },
+      { label: "Why writing looks reversed", next: 1 },
+      { label: "How periscopes bend sight", next: 2 }
+    ]
   }
 ];
 
 const category = document.querySelector("#demo-category");
 const title = document.querySelector("#demo-title");
 const hook = document.querySelector("#demo-hook");
-const question = document.querySelector("#demo-question");
-const choices = document.querySelector("#demo-choices");
-const reveal = document.querySelector("#demo-reveal");
-const recap = document.querySelector("#choice-recap");
-const revealCopy = document.querySelector("#reveal-copy");
-const next = document.querySelector("#next-question");
+const revealCopy = document.querySelector("#demo-reveal-copy");
+const paths = document.querySelector("#demo-paths");
 
-let questionIndex = 0;
+let trailIndex = 0;
 
-function renderQuestion() {
-  const item = questions[questionIndex];
-  category.textContent = item.category;
-  title.textContent = item.title;
-  hook.textContent = item.hook;
-  question.textContent = item.question;
-  choices.replaceChildren();
-  reveal.hidden = true;
-  question.hidden = false;
-  choices.hidden = false;
+function renderTrail() {
+  const trail = trails[trailIndex];
+  category.textContent = trail.category;
+  title.textContent = trail.title;
+  hook.textContent = trail.hook;
+  revealCopy.textContent = trail.reveal;
+  paths.replaceChildren();
 
-  item.choices.forEach((label, index) => {
+  trail.paths.forEach((path) => {
     const button = document.createElement("button");
-    button.className = "choice";
+    const arrow = document.createElement("span");
+    const label = document.createElement("span");
+
+    button.className = "trail-path";
     button.type = "button";
-    button.innerHTML = `<span>${label}</span><span>${index + 1}</span>`;
-    button.addEventListener("click", () => showReveal(label));
-    choices.append(button);
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "→";
+    label.textContent = path.label;
+    button.append(arrow, label);
+    button.addEventListener("click", () => {
+      trailIndex = path.next;
+      renderTrail();
+    });
+    paths.append(button);
   });
 }
 
-function showReveal(label) {
-  const item = questions[questionIndex];
-  recap.textContent = `You chose “${label}”.`;
-  revealCopy.textContent = item.reveal;
-  question.hidden = true;
-  choices.hidden = true;
-  reveal.hidden = false;
-  next.focus({ preventScroll: true });
-}
-
-next.addEventListener("click", () => {
-  questionIndex = (questionIndex + 1) % questions.length;
-  renderQuestion();
-  title.focus?.({ preventScroll: true });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key >= "1" && event.key <= "3" && !choices.hidden) {
-    const button = choices.children[Number(event.key) - 1];
-    button?.click();
-  }
-});
-
-renderQuestion();
+renderTrail();
