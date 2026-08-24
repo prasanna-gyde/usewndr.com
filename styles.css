@@ -18,10 +18,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--rounded);
@@ -887,11 +889,16 @@ footer a {
   }
 
   footer {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   footer p {
-    display: none;
+    display: block;
+  }
+
+  footer > div {
+    justify-content: flex-start;
   }
 }
 

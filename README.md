@@ -14,10 +14,10 @@ Open `http://127.0.0.1:4173`.
 
 ## Release file
 
-The website expects the notarized universal DMG at:
+The website download buttons point to the counted GitHub Release asset:
 
 ```text
-download/Wander-0.1.0.dmg
+https://github.com/prasanna-gyde/usewndr.com/releases/download/v0.1.0/Wander-0.1.0.dmg
 ```
 
-Update the download links and version copy together when publishing a new release.
+Update the release asset, download links, and version copy together when publishing a new release.
